@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfy.lafguiyond.mapper.LostMapper">
+    <resultMap id="LostEntityMap" type="com.zfy.lafguiyond.entities.Lost">
+        <id column="lsid" property="lsid"/>
+        <result column="lkey_word1" property="lkeyWord1"/>
+        <result column="lkey_word2" property="lkeyWord2"/>
+        <result column="lkey_word3" property="lkeyWord3"/>
+        <result column="lreal_address" property="lrealAddress"/>
+        <result column="lis_delete" property="lisDelete"/>
+    </resultMap>
+
+    <insert id="uploadImage">
+        insert into lost(limage) values(#{limage})
+    </insert>
+
+    <update id="updateExceptImage" parameterType="com.zfy.lafguiyond.entities.Lost">
+                update lost set ltitle = #{ltitle}
+        ,ltype=  #{ltype}
+        ,lkey_word1= #{lkeyWord1}
+        ,lkey_word2= #{lkeyWord2}
+        ,lkey_word3= #{lkeyWord3}
+        ,laddress= #{laddress}
+        ,laddress1 = #{laddress1}
+        ,lreal_address= #{lrealAddress}
+        ,ltime= #{ltime}
+        ,lname= #{lname}
+        ,lcontact= #{lcontact}
+        ,ldetail= #{ldetail}
+        ,id = #{id}
+        ,lis_delete = 0
+        where lsid = #{lsid}
+    </update>
+
+    <select id="findNewSid" resultType="java.lang.Integer">
+        select lsid from lost order by lsid desc limit 1
+    </select>
+
+    <select id="findAllLosts" resultMap="LostEntityMap">
+       select * from lost where lis_delete = 0 order by ltime desc
+    </select>
+
+    <select id="findBySid" resultMap="LostEntityMap">
+        SELECT * FROM lost WHERE lsid = #{lsid} and lis_delete = 0
+    </select>
+
+    <select id="findByAddress" resultMap="LostEntityMap">
+        SELECT * FROM lost WHERE laddress1 = #{laddress1} and lis_delete = 0 order by ltime desc
+    </select>
+
+    <select id="findById" resultMap="LostEntityMap">
+        SELECT * FROM lost WHERE id = #{id} and lis_delete = 0 order by ltime desc
+    </select>
+
+    <delete id="deleteBySid">
+        update lost set lis_delete = 1 where lsid = #{lsid}
+    </delete>
+
+    <select id="findRecentLost" resultMap="LostEntityMap">
+        select * from lost order by ltime desc limit 3
+    </select>
+
+    <select id="findMohu" resultMap="LostEntityMap">
+        select * from lost where lkey_word1 like "%" #{lkey_word1} "%"
+    </select>
+</mapper>

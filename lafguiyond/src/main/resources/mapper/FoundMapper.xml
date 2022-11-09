@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfy.lafguiyond.mapper.FoundMapper">
+    <resultMap id="FoundEntityMap" type="com.zfy.lafguiyond.entities.Found">
+        <id column="sid" property="sid"/>
+        <result column="key_word1" property="keyWord1"/>
+        <result column="key_word2" property="keyWord2"/>
+        <result column="key_word3" property="keyWord3"/>
+        <result column="real_address" property="realAddress"/>
+        <result column="is_delete" property="isDelete"/>
+    </resultMap>
+    <!-- 插入失物数据-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="sid">
+        insert into found
+        (title,type,key_word1,key_word2,key_word3,address,real_address,time,name,contact,detail)
+        values (#{title},#{type},#{keyWord1},#{keyWord2},#{keyWord3},#{address},#{realAddress},#{time},#{name},#{contact},#{detail})
+    </insert>
+
+    <delete id="deleteBySid">
+        update found set is_delete = 1 where sid = #{sid}
+    </delete>
+
+    <update id="updateExceptImage" parameterType="com.zfy.lafguiyond.entities.Found">
+                update found set title = #{title}
+        ,type=  #{type}
+        ,key_word1= #{keyWord1}
+        ,key_word2= #{keyWord2}
+        ,key_word3= #{keyWord3}
+        ,address= #{address}
+        ,address1 = #{address1}
+        ,real_address= #{realAddress}
+        ,time= #{time}
+        ,name= #{name}
+        ,contact= #{contact}
+        ,detail= #{detail}
+        ,id = #{id}
+        ,is_delete = 0
+        where sid = #{sid}
+    </update>
+
+    <!--插入照片-->
+    <insert id="updateImage">
+        update found set image = #{image} where sid = #{sid}
+    </insert>
+
+    <!--添加照片-->
+    <insert id="uploadImage">
+        insert into found(image) values(#{image})
+    </insert>
+
+    <!-- 根据用户名查询用户数据：User findByUsername(String username) -->
+    <select id="foundBySid" resultMap="FoundEntityMap">
+        SELECT * FROM found WHERE sid = #{sid} and is_delete = 0
+    </select>
+
+    <select id="findRecentFound" resultMap="FoundEntityMap">
+        select * from found where is_delete = 0 order by time desc limit 3
+    </select>
+
+    <select id="findAllFound" resultMap="FoundEntityMap">
+        select * from found where is_delete = 0 order by time desc
+    </select>
+
+    <select id="foundByAddress" resultMap="FoundEntityMap">
+        SELECT * FROM found WHERE address1 = #{address1} and is_delete = 0 order by time desc
+    </select>
+
+    <select id="foundById" resultMap="FoundEntityMap">
+        SELECT * FROM found WHERE id = #{id} and is_delete = 0 order by time desc
+    </select>
+
+    <select id="findNewSid" resultType="java.lang.Integer">
+        select sid from found order by sid desc limit 1
+    </select>
+
+    <select id="findMohu" resultMap="FoundEntityMap">
+        select * from found where key_word1 like #{key_word1}
+    </select>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfy.lafguiyond.mapper.UserMapper">
+    <resultMap id="UserEntityMap" type="com.zfy.lafguiyond.entities.User">
+        <id column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="is_delete" property="isDelete"/>
+    </resultMap>
+    <!-- 插入用户数据：Integer insert(User user) -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into user
+        (username,password,phone,qq,mail,picture,create_time,is_delete)
+        values (#{username},#{password},#{phone},#{qq},#{mail},#{picture},#{createTime},#{isDelete})
+    </insert>
+    <!-- 根据用户名查询用户数据：User findByUsername(String username) -->
+    <select id="findByUsername" resultMap="UserEntityMap">
+        SELECT * FROM user WHERE username = #{username}
+    </select>
+
+    <update id="changeUserInfo">
+        update user set username = #{username},password = #{password},
+        phone = #{phone},qq = #{qq},mail = #{mail} where id = #{id}
+    </update>
+
+    <select id="findById" resultMap="UserEntityMap">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+</mapper>

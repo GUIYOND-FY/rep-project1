@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aaef7945-a655-412c-9ac9-9a3aa05568c3" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\developtools\apache-maven-3.6.1\apache-maven-3.6.1\mvn_repo" />
+        <option name="mavenHome" value="D:/developtools/apache-maven-3.6.1/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\developtools\apache-maven-3.6.1\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2GCuXNf5DRmDEZ6OwMqKLAoAoBc" />
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mapper" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zfy.lafguiyond.service" />
+      <recent name="com.zfy.lafguiyond.mapper" />
+      <recent name="com.zfy.lafguiyond.controller" />
+      <recent name="com.zfy.lafguiyond.service.impl" />
+      <recent name="com.zfy.lafguiyond.service.ex" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\lafguiyond\src\main\resources\mapper" />
+      <recent name="D:\IdeaProjects\lafguiyond\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.LafguiyondApplication">
+    <configuration name="LostMapperTest.findMohu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lafguiyond" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zfy.lafguiyond.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zfy.lafguiyond.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.zfy.lafguiyond.mapper.LostMapperTest" />
+      <option name="METHOD_NAME" value="findMohu" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SysUserMapperTest.findBySysUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lafguiyond" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zfy.lafguiyond.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zfy.lafguiyond.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.zfy.lafguiyond.mapper.SysUserMapperTest" />
+      <option name="METHOD_NAME" value="findBySysUsername" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SysUserMapperTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lafguiyond" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zfy.lafguiyond.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zfy.lafguiyond.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.zfy.lafguiyond.mapper.SysUserMapperTest" />
+      <option name="METHOD_NAME" value="insert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SysUserServiceTest.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lafguiyond" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zfy.lafguiyond.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zfy.lafguiyond.service" />
+      <option name="MAIN_CLASS_NAME" value="com.zfy.lafguiyond.service.SysUserServiceTest" />
+      <option name="METHOD_NAME" value="login" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SysUserServiceTest.reg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lafguiyond" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zfy.lafguiyond.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zfy.lafguiyond.service" />
+      <option name="MAIN_CLASS_NAME" value="com.zfy.lafguiyond.service.SysUserServiceTest" />
+      <option name="METHOD_NAME" value="reg" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LafguiyondApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="lafguiyond" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zfy.lafguiyond.LafguiyondApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.LostMapperTest.findMohu" />
+      <item itemvalue="JUnit.SysUserMapperTest.insert" />
+      <item itemvalue="JUnit.SysUserMapperTest.findBySysUsername" />
+      <item itemvalue="JUnit.SysUserServiceTest.reg" />
+      <item itemvalue="JUnit.SysUserServiceTest.login" />
+      <item itemvalue="Spring Boot.LafguiyondApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SysUserMapperTest.findBySysUsername" />
+        <item itemvalue="JUnit.SysUserServiceTest.login" />
+        <item itemvalue="JUnit.SysUserServiceTest.reg" />
+        <item itemvalue="JUnit.SysUserMapperTest.insert" />
+        <item itemvalue="JUnit.LostMapperTest.findMohu" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aaef7945-a655-412c-9ac9-9a3aa05568c3" name="Default Changelist" comment="" />
+      <created>1665904925070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665904925070</updated>
+      <workItem from="1665904927446" duration="6556000" />
+      <workItem from="1665923524109" duration="1450000" />
+      <workItem from="1665925071000" duration="85000" />
+      <workItem from="1665925197301" duration="518000" />
+      <workItem from="1665925816915" duration="4075000" />
+      <workItem from="1665931474882" duration="351000" />
+      <workItem from="1665931837948" duration="758000" />
+      <workItem from="1665932620386" duration="38000" />
+      <workItem from="1665932670334" duration="10000" />
+      <workItem from="1665932701263" duration="2396000" />
+      <workItem from="1665935117354" duration="165000" />
+      <workItem from="1665977774230" duration="3705000" />
+      <workItem from="1665984354840" duration="9848000" />
+      <workItem from="1665994428627" duration="851000" />
+      <workItem from="1665995454777" duration="423000" />
+      <workItem from="1665997502879" duration="5673000" />
+      <workItem from="1666004640445" duration="5972000" />
+      <workItem from="1666017401443" duration="29000" />
+      <workItem from="1666017437667" duration="23000" />
+      <workItem from="1666017491489" duration="14000" />
+      <workItem from="1666017522396" duration="620000" />
+      <workItem from="1666018255309" duration="834000" />
+      <workItem from="1666019156466" duration="172000" />
+      <workItem from="1666057901138" duration="163000" />
+      <workItem from="1666058217369" duration="74000" />
+      <workItem from="1666061202311" duration="83000" />
+      <workItem from="1666061309443" duration="2134000" />
+      <workItem from="1666063478176" duration="72000" />
+      <workItem from="1666065782276" duration="167000" />
+      <workItem from="1666065973363" duration="2454000" />
+      <workItem from="1666070667044" duration="4315000" />
+      <workItem from="1666078706139" duration="18000" />
+      <workItem from="1666082594256" duration="578000" />
+      <workItem from="1666089293688" duration="1603000" />
+      <workItem from="1666095236448" duration="1225000" />
+      <workItem from="1666096513394" duration="6911000" />
+      <workItem from="1666143685588" duration="1534000" />
+      <workItem from="1666151657264" duration="3098000" />
+      <workItem from="1666156451407" duration="5752000" />
+      <workItem from="1666162480251" duration="5982000" />
+      <workItem from="1666170656427" duration="250000" />
+      <workItem from="1666173745325" duration="7636000" />
+      <workItem from="1666241893482" duration="12000" />
+      <workItem from="1666244742845" duration="601000" />
+      <workItem from="1666250965641" duration="5000" />
+      <workItem from="1666251687833" duration="654000" />
+      <workItem from="1666252443235" duration="112000" />
+      <workItem from="1666252663984" duration="140000" />
+      <workItem from="1666252823039" duration="3081000" />
+      <workItem from="1666257001685" duration="3134000" />
+      <workItem from="1666265740888" duration="1513000" />
+      <workItem from="1666314796669" duration="42000" />
+      <workItem from="1666324053363" duration="10956000" />
+      <workItem from="1666429757102" duration="14484000" />
+      <workItem from="1666509350623" duration="2126000" />
+      <workItem from="1666574850656" duration="5851000" />
+      <workItem from="1666589021552" duration="1744000" />
+      <workItem from="1666662901150" duration="3000" />
+      <workItem from="1666675799951" duration="966000" />
+      <workItem from="1666685273610" duration="957000" />
+      <workItem from="1666761822748" duration="7652000" />
+      <workItem from="1666788120167" duration="6392000" />
+      <workItem from="1666855287530" duration="4000" />
+      <workItem from="1667100850797" duration="624000" />
+      <workItem from="1667129744323" duration="4000" />
+      <workItem from="1667130654797" duration="16000" />
+      <workItem from="1667221747080" duration="968000" />
+      <workItem from="1667224071700" duration="19000" />
+      <workItem from="1667224520005" duration="88000" />
+      <workItem from="1667225872086" duration="41000" />
+      <workItem from="1667225922295" duration="17000" />
+      <workItem from="1667226595460" duration="7000" />
+      <workItem from="1667226642713" duration="49000" />
+      <workItem from="1667789651289" duration="68000" />
+      <workItem from="1667790159702" duration="3875000" />
+      <workItem from="1667808193885" duration="3000" />
+      <workItem from="1667994776589" duration="476000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/zfy/lafguiyond/mapper/FoundMapperTest.java</url>
+          <line>19</line>
+          <properties class="com.zfy.lafguiyond.mapper.FoundMapperTest" method="insert">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/zfy/lafguiyond/service/FoundServiceTest.java</url>
+          <line>59</line>
+          <properties class="com.zfy.lafguiyond.service.FoundServiceTest">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/zfy/lafguiyond/mapper/FoundMapperTest.java</url>
+          <line>37</line>
+          <properties class="com.zfy.lafguiyond.mapper.FoundMapperTest" method="updateImage">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/zfy/lafguiyond/mapper/FoundMapperTest.java</url>
+          <line>74</line>
+          <properties class="com.zfy.lafguiyond.mapper.FoundMapperTest" method="updateExceptImage">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/resources/static/index.html</url>
+          <line>294</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/resources/static/index.html</url>
+          <line>212</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

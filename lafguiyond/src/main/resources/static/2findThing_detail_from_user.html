@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>基于Java的校园失物信息共享平台</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/1findOwner.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
+	<script src="js/Times.js"></script>
+</head>
+<body>
+<!-- header分区 -->
+<header>
+	<div class="container">
+    	<div class="time fl">
+        	<span class="hours"></span>
+            <br/>
+            <span class="date"></span>
+        </div>
+        <div class="btnBox fr">
+            <button id="denglu" class="btn btn-primary btn-sm" onClick="location.href = '02denglu.html';">登录</button>
+            <button id="zhuce" class="btn btn-info btn-sm" onClick="location.href = '01zhuce.html';">注册</button>
+        </div>
+
+        <div class="fr userInfo">
+            <a>用户：<span id="userName">海绵宝宝依赖您的微笑</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-info btn-sm" onclick="exit();">退出</button>
+        </div>
+</header>
+<!-- logo分区 -->
+<div class="logo">
+	<div class="container">
+        <h1 class="fl logo_img">
+        	<img src="image/schoolLogo.png" class="img-responsive" alt="">
+        </h1>
+        <div class="search fr">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="请输入您要查找的物品类型">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="button">搜索</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- nav分区 -->
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container">
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="1findOwner.html">失物招领</a></li>
+            <li class="active"><a href="2findThings.html">寻物启事</a></li>
+            <li><a href="3public_findOwner.html">发布失物招领</a></li>
+            <li><a href="4public_findThing.html">发布寻物启事</a></li>
+            <li><a href="5thanksLetter.html">感谢信</a></li>
+            <li><input id="manage" type="button" value="个人中心" style="line-height: 50px;background-color: #d2f1f1" /></li>
+        </ul>
+    </div>
+</nav>
+<!-- content分区 -->
+<section>
+	<div class="container">
+        <div class="list-group">
+            <div class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                	<a href="2findThings.html">返回</a>
+                       <ol class=" fr breadcrumb">
+                            <li>您现在的位置：</li>
+                            <li>寻物启事</li>
+                            <li>详情页</li>
+                        </ol>
+                </h4>
+            </div>
+            <div class="list-group-item lostList">
+                <div class="list-group-item-text lostDetail_desc">
+                    <!--详情表格开始-->
+                    <table class="table table-bordered">
+                        <caption>
+                            <img src="image/icon/detail_ico.png" alt="">&nbsp;&nbsp;具体详情
+                        </caption>
+                        <tbody id="found_list" class="cart-body">
+                        <tr>
+                            <td class="col-sm-2">发布者</td>
+                            <td class="col-sm-8" id="name">廖莉同学</td>
+                        </tr>
+                        <tr>
+                            <td>物品种类</td>
+                            <td id="type">文具类</td>
+                        </tr>
+                        <tr>
+                            <td>关键词1</td>
+                            <td id="key_word1">笔袋</td>
+                        </tr>
+                        <tr>
+                            <td>物品关键词</td>
+                            <td id="keyWord"></td>
+                        </tr>
+                        <tr>
+                            <td>拾取地点</td>
+                            <td id="location">一教106课室</td>
+                        </tr>
+                        <tr>
+                            <td>拾取者</td>
+                            <td id="findPerson">计算机科学学院-14物联网-廖莉同学</td>
+                        </tr>
+                        <tr>
+                            <td>联系方式</td>
+                            <td id="contactNum">13450740290</td>
+                        </tr>
+                        <tr>
+                            <td>具体描述</td>
+                            <td id="detailDesc">蓝色笔袋，内有三支签字笔一支2b铅笔</td>
+                        </tr>
+                        <tr>
+                            <td>物品照片</td>
+                            <td>
+                                <img  id="thingsImage" src="" width="120" alt="">
+                            </td>
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <input id="delete" class="btn btn-primary" type="button" value="删除" />
+                        </div>
+                    </div>
+                </div>            </div>
+        </div>
+	</div>
+    <!-- 侧边栏分区 -->
+    <div class="side">
+        <div class="lostAndFound_log">
+            <img src="image/lostandfound.png" alt="">
+        </div>
+        <div class="focusOnzilvhui">
+            <div>关注自律会</div>
+            <div>
+                <img src="image/zilvhui_erweima/erweima1.jpg" alt="">
+                <p>校本部<br>自律会公众号</p>
+                <br>
+                <hr>
+                <img src="image/zilvhui_erweima/erweima2.jpg" alt="">
+                <p>四校区<br>自律会公众号</p>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- footer分区 -->
+<footer>
+	<div class="footer">	
+        <div class="container">
+            <ul>
+                <li><a href="#">免责声明</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">网站合作</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+    	<p>2022浙大城市学院学生校园失物信息共享平台</p>
+        <p>地址： &nbsp; 浙江省杭州市拱墅区湖州街61号浙大城市学院北校区</p>
+        <p>举报邮箱：clcllclc@qq.com</p>
+        <p>提示: &nbsp;禁止发布任何违反国家法律、法规的言论与图片等内容</p>
+        <p>版权最终归网站设计者L&nbsp;L所有</p>
+    </div>
+</footer>
+<!-- js -->
+<script src="js/cookie.js"></script>
+<script src="js/userInfo.js"></script>
+<script>
+$(document).ready(function(e) {
+	$(".hours").jtime({
+		format: "HH:mm"
+	});
+	$(".date").jtime({
+		format: "yyyy-MM-dd  星期W"
+	})
+});
+</script>
+<script src="js/2findThing_detail.js"></script>
+
+<script type="text/javascript">
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    };
+
+    var sid = getUrlParam('newsid');
+
+
+    $(document).ready(function() {
+        showFound(sid);
+    });
+
+    function showFound(sid) {
+        //清空tbody中原有的数据
+        $("#found_list").empty();
+        $.ajax({
+            url: "losts/"+sid+"/found_detail_lost",
+            type: "GET",
+            dataType: "JSON",
+            success: function(json) {
+                // console.log("cookie中的image=" + $.cookie("image"));
+                // $("#img-avatar").attr("src", $.cookie("image"));
+                var data = json.data;
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">标题</td>'
+                    +'<td class="col-sm-8" id="name">#{ltitle}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{ltitle}/g,data.ltitle);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">类型</td>'
+                    +'<td class="col-sm-8" id="name">#{ltype}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{ltype}/g,data.ltype);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">关键词1</td>'
+                    +'<td class="col-sm-8" id="name">#{lkeyWord1}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{lkeyWord1}/g,data.lkeyWord1);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">关键词2</td>'
+                    +'<td class="col-sm-8" id="name">#{lkeyWord2}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{lkeyWord2}/g,data.lkeyWord2);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">关键词3</td>'
+                    +'<td class="col-sm-8" id="name">#{lkeyWord3}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{lkeyWord3}/g,data.lkeyWord3);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">地址</td>'
+                    +'<td class="col-sm-8" id="name">#{laddress}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{laddress}/g,data.laddress);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">详细地址</td>'
+                    +'<td class="col-sm-8" id="name">#{lrealAddress}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{lrealAddress}/g,data.lrealAddress);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">时间</td>'
+                    +'<td class="col-sm-8" id="name">#{ltime}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{ltime}/g,data.ltime);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">发布者</td>'
+                    +'<td class="col-sm-8" id="name">#{lname}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{lname}/g,data.lname);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">联系方式</td>'
+                    +'<td class="col-sm-8" id="name">#{lcontact}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{lcontact}/g,data.lcontact);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">备注</td>'
+                    +'<td class="col-sm-8" id="name">#{ldetail}</td>'
+                    +'</tr>'
+                tr = tr.replace(/#{ldetail}/g,data.ldetail);
+                $("#found_list").append(tr);
+
+                var tr = '<tr>'
+                    +'<td class="col-sm-2">图片</td>'
+                    +'<td><img src="#{limage}" class="img-responsive" /></td>'
+                    +'</tr>'
+                tr = tr.replace(/#{limage}/g,data.limage);
+                $("#found_list").append(tr);
+
+            }
+        });
+    }
+    function putSidIntoSession() {
+
+        location.href = "1findOwner_detail.html";
+
+    }
+</script>
+
+<script type="text/javascript">
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    };
+
+    var sid = getUrlParam('newsid');
+
+    $("#delete").click(function() {
+
+        console.log($("#found_list").serialize());
+        $.ajax({
+            url: "/losts/"+sid+"/delete_lost",
+            type: "POST",
+            data: $("#found_list").serialize(),
+            dataType: "json",
+            success: function(json) {
+                if (json.state == 200) {
+                    alert("删除成功！");
+                    location.href = "8userManage.html";
+                } else {
+                    alert("删除失败！" + json.message);
+                }
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $("#manage").click(function(){
+        manageCtr();
+    });
+    function manageCtr() {
+        $.ajax({
+            url: "sysusers/manage",
+            type: "POST",
+            dataType: "JSON",
+            success: function (json) {
+
+                if (json.state == 200) {
+                    if(json.data==1){
+                        location.href = "9manager.html";
+                    }
+                    else{
+                        location.href = "8userManage.html";
+                    }
+                }
+            }
+        });
+
+    }
+</script>
+</body>
+</html>
