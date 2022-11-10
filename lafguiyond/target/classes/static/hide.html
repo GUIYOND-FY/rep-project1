@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>经过A弹出B</title>
+		<script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+		<style type="text/css">
+			#hook {
+				float: left;
+				margin: 10px;
+				width: 50px;
+				height: 50px;
+				background-color: #ccc;
+			}
+
+			#msg-box {
+				border: 1px solid black;
+				width: 200px;
+				height: 150px;
+				display: none;
+				float: left;
+				padding: 10px
+			}
+		</style>
+	</head>
+	<body>
+		<div id="hook">A</div>
+		<div id="msg-box">功能模块B</div>
+		<script type="text/javascript">
+			var timer;//放一个计时器
+			$("#hook,#msg-box").bind("mouseover", showMsgBox);//触发事件是mouseover
+			// mouseover:鼠标移入目标元素上方时触发。
+			// mousemove:鼠标在元素内部移动时不断触发。
+			$("#hook").bind("mouseout", hideMsgBox);
+			$("#msg-box").bind("mouseout", function() {
+				if (timer) {
+					clearTimeout(timer);
+				}
+				$("#msg-box").hide();
+			});
+
+			function showMsgBox() {
+				if (timer) {//调用mouseover事件前必须清除定时器
+					clearTimeout(timer);//鼠标移入A要判断 如果有计时器就清除
+				}
+				$("#msg-box").show();
+			}
+
+			function hideMsgBox() {
+				timer = setTimeout(function() {
+					$("#msg-box").hide();
+				}, 500);//延迟0.5s再关闭B 用户有时间操作
+			}
+		</script>
+	</body>
+</html>
+<!-- 把触发元素A和要显示元素B放于同一个父级元素内，鼠标经过父级元素时触发显示B。
+这样鼠标移动到B时仍然 处于该父级元素内，则div不会隐藏。 -->
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>经过A显示B且不隐藏</title>
+		<script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+		<style type="text/css">
+			#hook {
+				float: left;
+				margin: 10px 0 10px 10px;
+				width: 50px;
+				height: 50px;
+				background-color: #ccc;
+			}
+
+			#msg-box {
+				border: 1px solid black;
+				width: 200px;
+				height: 150px;
+				display: none;
+				float: left;
+				padding: 10px
+			}
+		</style>
+	</head>
+	<body>
+		<div id="hoverWrap">
+			<div id="hook">A</div>
+			<div id="msg-box">功能模块B</div>//放在同一个父级元素 导致没有间距
+		</div>
+		<script type="text/javascript">
+			$("#hoverWrap").hover(function() {
+				$("#msg-box").toggle();
+			});
+		</script>
+	</body>
+</html>
+ -->

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aaef7945-a655-412c-9ac9-9a3aa05568c3" name="Default Changelist" comment="" />
+    <list default="true" id="aaef7945-a655-412c-9ac9-9a3aa05568c3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/comments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/hide.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/8userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/8userManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/8user_mypublicLost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/8user_mypublicLost.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +26,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -35,6 +44,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2GCuXNf5DRmDEZ6OwMqKLAoAoBc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -49,6 +59,10 @@
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\lafguiyond\src\main\resources\static\js" />
+      <recent name="D:\IdeaProjects\lafguiyond\src\main\resources\static" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.zfy.lafguiyond.service" />
       <recent name="com.zfy.lafguiyond.mapper" />
@@ -269,11 +283,23 @@
       <workItem from="1667790159702" duration="3875000" />
       <workItem from="1667808193885" duration="3000" />
       <workItem from="1667994776589" duration="476000" />
+      <workItem from="1668082792311" duration="380000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

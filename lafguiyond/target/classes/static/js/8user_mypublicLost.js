@@ -24,6 +24,12 @@ $('#section04').click(function(){
     sysInfo(1);
 })
 
+$('#SLviewport').click(function(){
+    $(this).addClass('act').siblings().removeClass('act');
+    $('.aside_content .content').eq(5).addClass('current').siblings().removeClass('current');
+    
+})
+
 
 /*--------------点击后对应的响应函数-------------*/
 //修改密码

@@ -1,436 +1,911 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>基于Java的校园失物信息共享平台</title>
-    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/7aboutus.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js">
-</script>
-	<script src="js/Times.js"></script>
-</head>
-<body>
-<!-- header分区 -->
-<header>
-	<div class="container">
-    	<div class="time fl">
-        	<span class="hours"></span>
-            <br/>
-            <span class="date"></span>
-        </div>
-        <div class="fr userInfo">
-            <a href="8userManage.html">用户：<span id="userName">海绵宝宝依赖您的微笑</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-info btn-sm" onclick="exit();">退出</button>
-        </div>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>基于Java的校园失物信息共享平台</title>
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/animate.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/7aboutus.css">
 
-    </div>
-</header>
-<!-- logo分区 -->
-<div class="logo">
-	<div class="container">
-        <h1 class="fl logo_img">
-        	<img src="image/schoolLogo.png" class="img-responsive" alt="">
-        </h1>
-<!--        <div class="search fr">-->
-<!--            <div class="input-group">-->
-<!--                <input type="text" class="form-control" placeholder="请输入您要查找的关键词1">-->
-<!--                <span class="input-group-btn">-->
-<!--                    <button class="btn btn-info" type="button">搜索</button>-->
-<!--                </span>-->
-<!--            </div>-->
-<!--        </div>-->
-    </div>
-</div>
-<!-- nav分区 -->
-<nav class="navbar navbar-default" role="navigation">
-	<div class="container">
-        <ul class="nav navbar-nav">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="1findOwner.html">失物招领</a></li>
-            <li><a href="2findThings.html">寻物启事</a></li>
-            <li><a href="3public_findOwner.html">发布失物招领</a></li>
-            <li><a href="4public_findThing.html">发布寻物启事</a></li>
-            <li><a href="5thanksLetter.html">感谢信</a></li>
-            <li><input id="manage" type="button" value="个人中心" style="line-height: 50px;background-color: #d2f1f1" /></li>
-        </ul>
-    </div>
-</nav>
-<!-- content分区 -->
-<section>
-	<div class="container">
-        <div class="list-group" id="listHeader">
-            <div class="list-group-item active">
-                <h4 class="list-group-item-heading">
-                    用户个人中心
-                    <ol class="breadcrumb fr">
-                        <li>您现在的位置：</li>
-                        <li>用户个人中心</li>
-                    </ol>
-                </h4>
-            </div>        
-            <div class="list-group-item" style="overflow: hidden;">
-            	<aside class="fl aside_navbar">
-                	<ul>
-                    	<li id="section01">修改我的资料</li>
-                    	<li id="section02">查看我发布的失物招领</li>
-                    	<li id="section03">查看我发布的寻物启事</li>
-                    	<li id="section04">系统消息</li>
-                    </ul>
-                </aside>
-            	<article class="fl aside_content">
-                	<div class="content current">
-                    	<br><br>
-                        <p>欢迎您成为我们的一员</p>
-                        <br><br>
-                        <p>小贴士：广东技术师范学院学生自律委员会失物招领值班时间：</p><br>
-                        <p>上午：11:35 - 12:05</p><br>
-                        <p>下午：16:45 - 17:25</p><br>
-                        <br>
-                        <p>失物招领值班地点：综合馆一楼</p>
-                        <br><br>
-                        <p>需要上交失物的同学请在工作时间段内来值班点进行现场<a href="3public_findOwner.html">&nbsp;&nbsp;失物登记&nbsp;&nbsp;</a>或<a href="4public_findThing.html">&nbsp;&nbsp;报失登记&nbsp;&nbsp;</a></p>
-                        <br><br>
-                        <p style="text-align: right; padding-right: 100px; box-sizing: border-box;">校园失物信息共享平台 宣</p>
-                        <br>
-                        <hr>
-                        <br>
-                        <p style="text-align: center;">广告服务：失物认领网广告服务，请联系广东技术师范学院学生自律委员会！</p>
-                    </div>
-                	<div class="content ">
-                    	<br><br>
-                        <form id="form-reg" class="form-horizontal" role="form">
-                            <!--用户名-->
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">名字：</label>
-                                <div class="col-md-8">
-                                    <input name="username" type="text" class="form-control" placeholder="请输入用户名">
-                                </div>
-                            </div>
-                            <!--密码-->
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"> 密码：</label>
-                                <div class="col-md-8">
-                                    <input name="password" type="text" class="form-control" placeholder="请输入密码">
-                                </div>
-                            </div>
-                            <!--确认密码-->
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"> 确认密码：</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="请再次输入密码">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"> 手机号：</label>
-                                <div class="col-md-8">
-                                    <input name="phone" type="text" class="form-control" placeholder="请输入手机号">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"> qq：</label>
-                                <div class="col-md-8">
-                                    <input name="qq" type="text" class="form-control" placeholder="请输入qq号">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"> 邮箱：</label>
-                                <div class="col-md-8">
-                                    <input name="mail" type="text" class="form-control" placeholder="请输入邮箱">
-                                </div>
-                            </div>
-                            <!--提交按钮-->
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"></label>
-                                <div class="col-md-8">
-                                    <input id="btn-reg" class="btn btn-primary" type="button" value="立即修改" />
-                                </div>
-                            </div>
-                        </form>
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js">
+		</script>
+		<script src="js/Times.js"></script>
+		<style type="text/css">
+			@import url('https://fonts.googleapis.com css2?family-Open+Sans:wght@300;400;00;600;700&display=swap');
 
-                        <br>
+			.SLcontainer {
+				position: relative;
+				width: 1396px;
+				max-width: 100%;
+				height: 630px;
+				background: #fff;
+				box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.06);
+				display: flex;
+			}
 
-                    </div>
-                	<div class="content ">
-                        <form class="form-horizontal" role="form">
-                        	<div class="form-group">
-                                <table class="table">
-                                  <thead>
-                                    <tr>
-                                      <th>标题</th>
-                                      <th>物品类型</th>
-                                      <th>关键词1</th>
-                                      <th>发布时间</th>
-                                      <th>预览图片</th>
-                                      <th>状态修改</th>
-                                        <th>备注</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="tab_Lost"></tbody>
-                                </table>
-                            </div>
-<!--                            <div id="paging">-->
-<!--                                <div class="first" onclick="mypublicLost(1)">首页</div>-->
-<!--                                <div class="prev">上一页</div>-->
-<!--                                <div class="next">下一页</div>-->
-<!--                                <div class="last">末页</div>-->
-<!--                            </div>-->
-                            <br>
-                        </form>
-                    </div>
-                	<div class="content">
-                        <form class="form-horizontal" role="form">
-                        	<div class="form-group">
-                                <table class="table">
-                                  <thead>
-                                  <tr>
-                                      <th>标题</th>
-                                      <th>物品类型</th>
-                                      <th>关键词1</th>
-                                      <th>发布时间</th>
-                                      <th>预览图片</th>
-                                      <th>状态修改</th>
-                                      <th>备注</th>
-                                  </tr>
-                                  </thead>
-                                  <tbody id="tab_Find"></tbody>
-                                </table>
-                            </div>
+			.SLcontainer .SLleftSide {
+				position: relative;
+				
+				background: #fff;
+				border-right: 1px solid rgba(0, 0, 0, 0.2);
+			}
 
-                            <br>
+			.SLcontainer .SLrightside {
+				position: relative;
+				width: 800px;
+				background: #e5ddd5;
+			}
 
-                        </form>
-                    </div>
-                	<div class="content">
-                        <br><br>
-                        <form class="form-horizontal" role="form">
-                        	<div class="form-group">
-                                <table class="table">
-                                  <thead>
-                                    <tr>
-                                      <th style="width: 30px;"></th>
-                                      <th style="width: 160px;">时间</th>
-                                      <th>系统消息</th>
-                                      <th style="width: 160px;">是否删除</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="tab_inform"></tbody>
-                                </table>
-                            </div>
-                            <div id="paging3">
-                                <div class="first">首页</div>
-                                <div class="prev">上一页</div>
-                                <div class="next">下一页</div>
-                                <div class="last">末页</div>
-                            </div>
-                            <br>
-                        </form>
-                    </div>
-                </article>
-                <br>
-                <br>
-            </div>        
-        </div>
-	</div>
-    <!-- 侧边栏分区 -->
-    <div class="side">
-        <div class="lostAndFound_log">
-            <img src="image/lostandfound.png" alt="">
-        </div>
-        <div class="focusOnzilvhui">
-            <div>关注自律会</div>
-            <div>
-                <img src="image/zilvhui_erweima/erweima1.jpg" alt="">
-                <p>校本部<br>自律会公众号</p>
-                <br>
-                <hr>
-                <img src="image/zilvhui_erweima/erweima2.jpg" alt="">
-                <p>四校区<br>自律会公众号</p>
-                <br>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- footer分区 -->
-<footer>
-	<div class="footer">	
-        <div class="container">
-            <ul>
-                <li><a href="#">免责声明</a></li>
-                <li><a href="#">关于我们</a></li>
-                <li><a href="#">网站合作</a></li>
-                <li><a href="#">联系我们</a></li>
-            </ul>
-        </div>
-    </div>
-    <br>
-    <div class="container">
-    	<p>2022浙大城市学院学生校园失物信息共享平台</p>
-        <p>地址： &nbsp; 浙江省杭州市拱墅区湖州街61号浙大城市学院北校区</p>
-        <p>举报邮箱：clcllclc@qq.com</p>
-        <p>提示: &nbsp;禁止发布任何违反国家法律、法规的言论与图片等内容</p>
-        <p>版权最终归网站设计者L&nbsp;L所有</p>
-    </div>
-</footer>
-<script src="js/cookie.js"></script>
-<script src="js/userInfo.js"></script>
-<script src="js/8user_mypublicLost.js"></script>
-<script>
-$(document).ready(function(e) {
-	$(".hours").jtime({
-		format: "HH:mm"
-	});
-	$(".date").jtime({
-		format: "yyyy-MM-dd  星期W"
-	})
-	
-	$('label>input[type=radio]').click(function(e) {
-		if($(this).is(':checked')){
-			//alert($(this).is(':checked'));
-			$(this).siblings().removeAttr('checked');	
-			$(this).attr('checked','checked');
-		}
-    });
-});
-</script>
+			.SLcontainer .SLrightside::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: url(img6-bg.jpg);
+				opacity: 0.06;
+			}
 
-<script type="text/javascript">
-    $("#btn-reg").click(function() {
-        console.log($("#form-reg").serialize());
-        $.ajax({
-            url: "/users/update",
-            type: "POST",
-            data: $("#form-reg").serialize(),
-            dataType: "json",
-            success: function(json) {
-                if (json.state == 200) {
-                    alert("修改成功！");
-// location.href = "login.html";
-                } else {
-                    alert("修改失败！" + json.message);
-                }
-            }
-        });
-    });
-</script>
+			.header {
+				position: relative;
+				width: 100%;
+				height: 60px;
+				background: #ededed;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 15px;
+			}
 
-<script type="text/javascript">
+			.userimg {
+				position: relative;
+				width: 40px;
+				height: 40px;
+				overflow: hidden;
+				border-radius: 50%;
+				cursor: pointer;
+			}
 
-    $(document).ready(function() {
-        showFoundList();
-    });
-    function showFoundList() {
-        //清空tbody中原有的数据
-        $("#tab_Lost").empty();
-        $.ajax({
-            url: "/founds/found_by_id",
-            type: "GET",
-            dataType: "JSON",
-            success: function(json) {
-                // console.log("cookie中的image=" + $.cookie("image"));
-                // $("#img-avatar").attr("src", $.cookie("image"));
-                var list = json.data;
-                for (var i = 0; i < list.length; i++) {
+			.cover {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
 
-                    var tr = '<tr>'
-                        + '<td>#{title}</td>'
-                        + '<td>#{type}</td>'
-                        + '<td>#{keyWord1}</td>'
-                        + '<td>#{time}</td>'
-                        + '<td><img src="#{image}" class="img-responsive" /></td>'
-                        + '<td><a href="2findOwner_detail_from_user.html?newsid='+list[i].sid+'">详情</a></td>'
-                        + '<td>#{detail}</td>'
-                        + '</tr>';
+			.nav_icons {
+				display: flex;
+			}
 
-                    tr = tr.replace(/#{title}/g, list[i].title);
-                    tr = tr.replace(/#{type}/g, list[i].type);
-                    tr = tr.replace(/#{keyWord1}/g, list[i].keyWord1);
-                    tr = tr.replace(/#{time}/g, list[i].time);
-                    tr = tr.replace(/#{image}/g, list[i].image);
-                    tr = tr.replace(/#{detail}/g, list[i].detail);
+			.nav_icons li {
+				display: flex;
+				list-style: none;
+				cursor: pointer;
+				color: #51585c;
+				font-size: 1.5em;
+				margin-left: 22px;
+			}
 
-                    $("#tab_Lost").append(tr);
-                }
+			.search_chat {
+				position: relative;
+				width: 100%;
+				height: 50px;
+				background: #f6f6f6;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0 15px;
+			}
 
-            }
-        });
-    }
+			.search_chat div {
+				width: 100%;
+			}
 
-</script>
+			.search_chat div input {
+				width: 100%;
+				outline: none;
+				border: none;
+				background: #fff;
+				padding: 6px;
+				height: 38px;
+				border-radius: 30px;
+				font-size: 14px;
+				padding-left: 40px;
+			}
 
-<script type="text/javascript">
+			.search_chat div input::placeholder {
+				color: #bbb;
+			}
 
-    $(document).ready(function() {
-        showFoundListLost();
-    });
-    function showFoundListLost() {
-        //清空tbody中原有的数据
-        $("#tab_Find").empty();
-        $.ajax({
-            url: "/losts/found_by_id_lost",
-            type: "GET",
-            dataType: "JSON",
-            success: function(json) {
-                // console.log("cookie中的image=" + $.cookie("image"));
-                // $("#img-avatar").attr("src", $.cookie("image"));
-                var list = json.data;
-                for (var i = 0; i < list.length; i++) {
+			.search_chat div img {
+				position: absolute;
+				left: 30px;
+				top: 14px;
+				font-size: 1.5em;
+			}
 
-                    var tr = '<tr>'
-                        + '<td>#{ltitle}</td>'
-                        + '<td>#{ltype}</td>'
-                        + '<td>#{lkeyWord1}</td>'
-                        + '<td>#{ltime}</td>'
-                        + '<td><img src="#{limage}" class="img-responsive" /></td>'
-                        + '<td><a href="2findThing_detail_from_user.html?newsid='+list[i].lsid+'">详情</a></td>'
-                        + '<td>#{ldetail}</td>'
-                        + '</tr>';
+			.chatlist {
+				position: relative;
+				height: calc(100%-110px);
+				overflow-y: auto;
+			}
 
-                    tr = tr.replace(/#{ltitle}/g, list[i].ltitle);
-                    tr = tr.replace(/#{ltype}/g, list[i].ltype);
-                    tr = tr.replace(/#{lkeyWord1}/g, list[i].lkeyWord1);
-                    tr = tr.replace(/#{ltime}/g, list[i].ltime);
-                    tr = tr.replace(/#{limage}/g, list[i].limage);
-                    tr = tr.replace(/#{ldetail}/g, list[i].ldetail);
+			.chatlist .block {
+				position: relative;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				padding: 15px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+			}
 
-                    $("#tab_Find").append(tr);
-                }
+			.chatlist .block.active {
+				background: #ebebeb;
+			}
+
+			.chatlist .block:hover {
+				background: #f5f5f5;
+			}
+
+			.chatlist .block .imgbx {
+				position: relative;
+				min-width: 45px;
+				height: 45px;
+				overflow: hidden;
+				border-radius: 50%;
+				margin-right: 10px;
+			}
+
+			.chatlist .block .details {
+				position: relative;
+				width: 100%;
+			}
+
+			.chatlist .block .details .listHead {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 5px;
+			}
+
+			.chatlist .block .details .listHead h4 {
+				font-size: 1.1em;
+				font-weight: 600;
+				color: #111;
+			}
+
+			.chatlist .block .details .listHead .time {
+				font-size: 0.75em;
+				color: #aaa;
+			}
+
+			.chatlist .block .details .listHead .time {
+				color: #111;
+			}
+
+			.message_p {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.message_p p {
+				color: #aaa;
+				display: -webkit-box;
+				-webkit-line-break: 1;
+				font-size: 0.9em;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.message_p b {
+				background-color: red;
+				color: #fff;
+				min-width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 0.75em;
+			}
+
+			.imgText {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.imgText h4 {
+				font-weight: 500;
+				line-height: 1.2em;
+				margin-left: 15px;
+			}
+
+			.imgText h4 span {
+				font-size: 0.8em;
+				color: #555;
+			}
+
+			.chatBox {
+				position: relative;
+				width: 700px;
+				height: 470px;
+				padding: 50px;
+				overflow-y: auto;
+			}
+
+			.message {
+				position: relative;
+				display: flex;
+				width: 100%;
+				margin: 5px 0;
+			}
+
+			.message p {
+				position: relative;
+				right: 0;
+				text-align: right;
+				max-width: 65%;
+				padding: 12px;
+				background: #dcf8c6;
+				border-radius: 10px;
+				font-size: 0.9em;
+			}
+
+			.message p::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: -12px;
+				width: 20px;
+				height: 20px;
+				background: linear-gradient(135deg, #dcf8c6 0%, #dcf8c6 50%, transparent 50%, transparent);
+			}
+
+			.message p span {
+				display: block;
+				margin-top: 5px;
+				font-size: 0.85em;
+				opacity: 0.5;
+			}
+
+			.my_message {
+				justify-content: flex-end;
+			}
+
+			.frnd_message {
+				justify-content: flex-start;
+			}
+
+			.frnd_message p {
+				background: #fff;
+				text-align: left;
+			}
+
+			.message.frnd_message p::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -12px;
+				width: 20px;
+				height: 20px;
+				background: linear-gradient(225deg, #fff 0%, #fff 50%, transparent 50%, transparent);
+			}
+
+			.chatbox_input {
+				position: relative;
+				width: 100%;
+				height: 100px;
+				background: #f0f0f0;
+				padding: 30px;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.chatbox_input input {
+				position: relative;
+				width: 60%;
+
+				margin: 0 40px;
+				padding: 10px 20px;
+				border: none;
+				outline: none;
+				border-radius: 20px;
+				font-size: 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- header分区 -->
+		<header>
+			<div class="container">
+				<div class="time fl">
+					<span class="hours"></span>
+					<br />
+					<span class="date"></span>
+				</div>
+				<div class="fr userInfo">
+					<a href="8userManage.html">用户：<span id="userName">海绵宝宝依赖您的微笑</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<button class="btn btn-info btn-sm" onclick="exit();">退出</button>
+				</div>
+
+			</div>
+		</header>
+		<!-- logo分区 -->
+		<div class="logo">
+			<div class="container">
+				<h1 class="fl logo_img">
+					<img src="image/schoolLogo.png" class="img-responsive" alt="">
+				</h1>
+				<div class="search fr">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="请输入您要查找的关键词">
+						<span class="input-group-btn">
+							<button class="btn btn-info" type="button">搜索</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- nav分区 -->
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">首页</a></li>
+					<li><a href="1findOwner.html">失物招领</a></li>
+					<li><a href="2findThings.html">寻物启事</a></li>
+					<li><a href="3public_findOwner.html">发布失物招领</a></li>
+					<li><a href="4public_findThing.html">发布寻物启事</a></li>
+					<li><a href="5thanksLetter.html">感谢信</a></li>
+					<li><input id="manage" type="button" value="个人中心" style="line-height: 50px;background-color: #d2f1f1" /></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- content分区 -->
+		<section>
+			<div class="container">
+				<div class="list-group" id="listHeader">
+					<div class="list-group-item active">
+						<h4 class="list-group-item-heading">
+							用户个人中心
+							<ol class="breadcrumb fr">
+								<li>您现在的位置：</li>
+								<li>用户个人中心</li>
+							</ol>
+						</h4>
+					</div>
+					<div class="list-group-item" style="overflow: hidden;">
+						<aside class="fl aside_navbar">
+							<ul>
+								<li id="section01">修改我的资料</li>
+								<li id="section02">查看我发布的失物招领</li>
+								<li id="section03">查看我发布的寻物启事</li>
+								<li id="section04">系统消息</li>
+								<li id="SLviewport" onclick="add()">私聊</li>
+							</ul>
+						</aside>
+						<article class="fl aside_content">
+							<div class="content current">
+								<br><br>
+								<p>欢迎您成为我们的一员</p>
+								<br><br>
+								<p>小贴士：广东技术师范学院学生自律委员会失物招领值班时间：</p><br>
+								<p>上午：11:35 - 12:05</p><br>
+								<p>下午：16:45 - 17:25</p><br>
+								<br>
+								<p>失物招领值班地点：综合馆一楼</p>
+								<br><br>
+								<p>需要上交失物的同学请在工作时间段内来值班点进行现场<a href="3public_findOwner.html">&nbsp;&nbsp;失物登记&nbsp;&nbsp;</a>或<a href="4public_findThing.html">&nbsp;&nbsp;报失登记&nbsp;&nbsp;</a></p>
+								<br><br>
+								<p style="text-align: right; padding-right: 100px; box-sizing: border-box;">校园失物信息共享平台 宣</p>
+								<br>
+								<hr>
+								<br>
+								<p style="text-align: center;">广告服务：失物认领网广告服务，请联系广东技术师范学院学生自律委员会！</p>
+							</div>
+							<div class="content ">
+								<br><br>
+								<form id="form-reg" class="form-horizontal" role="form">
+									<!--用户名-->
+									<div class="form-group">
+										<label class="col-md-3 control-label">名字：</label>
+										<div class="col-md-8">
+											<input name="username" type="text" class="form-control" placeholder="请输入用户名">
+										</div>
+									</div>
+									<!--密码-->
+									<div class="form-group">
+										<label class="col-md-3 control-label"> 密码：</label>
+										<div class="col-md-8">
+											<input name="password" type="text" class="form-control" placeholder="请输入密码">
+										</div>
+									</div>
+									<!--确认密码-->
+									<div class="form-group">
+										<label class="col-md-3 control-label"> 确认密码：</label>
+										<div class="col-md-8">
+											<input type="text" class="form-control" placeholder="请再次输入密码">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label"> 手机号：</label>
+										<div class="col-md-8">
+											<input name="phone" type="text" class="form-control" placeholder="请输入手机号">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label"> qq：</label>
+										<div class="col-md-8">
+											<input name="qq" type="text" class="form-control" placeholder="请输入qq号">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label"> 邮箱：</label>
+										<div class="col-md-8">
+											<input name="mail" type="text" class="form-control" placeholder="请输入邮箱">
+										</div>
+									</div>
+									<!--提交按钮-->
+									<div class="form-group">
+										<label class="col-md-3 control-label"></label>
+										<div class="col-md-8">
+											<input id="btn-reg" class="btn btn-primary" type="button" value="立即修改" />
+										</div>
+									</div>
+								</form>
+
+								<br>
+
+							</div>
+							<div class="content ">
+								<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>标题</th>
+													<th>物品类型</th>
+													<th>关键词1</th>
+													<th>发布时间</th>
+													<th>预览图片</th>
+													<th>状态修改</th>
+													<th>备注</th>
+												</tr>
+											</thead>
+											<tbody id="tab_Lost"></tbody>
+										</table>
+									</div>
+									<!--                            <div id="paging">-->
+									<!--                                <div class="first" onclick="mypublicLost(1)">首页</div>-->
+									<!--                                <div class="prev">上一页</div>-->
+									<!--                                <div class="next">下一页</div>-->
+									<!--                                <div class="last">末页</div>-->
+									<!--                            </div>-->
+									<br>
+								</form>
+							</div>
+							<div class="content">
+								<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>标题</th>
+													<th>物品类型</th>
+													<th>关键词1</th>
+													<th>发布时间</th>
+													<th>预览图片</th>
+													<th>状态修改</th>
+													<th>备注</th>
+												</tr>
+											</thead>
+											<tbody id="tab_Find"></tbody>
+										</table>
+									</div>
+
+									<br>
+
+								</form>
+							</div>
+							<div class="content">
+								<br><br>
+								<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<table class="table">
+											<thead>
+												<tr>
+													<th style="width: 30px;"></th>
+													<th style="width: 160px;">时间</th>
+													<th>系统消息</th>
+													<th style="width: 160px;">是否删除</th>
+												</tr>
+											</thead>
+											<tbody id="tab_inform"></tbody>
+										</table>
+									</div>
+									<div id="paging3">
+										<div class="first">首页</div>
+										<div class="prev">上一页</div>
+										<div class="next">下一页</div>
+										<div class="last">末页</div>
+									</div>
+									<br>
+								</form>
+							</div>
+							<div class="content" >
+								<br><br>
+								<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<table class="table">
+											<div class="SLcontainer">
+												<div class="SLleftSide"  id="SLleftSide">
+													<!--header-->
+													<div class="header">
+														<div class="userimg">
+															<img src="image/SLimg1.png" class="cover">
+														</div>
+
+													</div>
+													<!--search-->
+													<div class="search_chat">
+														<div>
+															<input type="text" placeholder="搜索...">
+
+														</div>
+													</div>
+													<!--ChatList-->
+													<div class="chatlist">
+														<div class="block active " >
+															<div class="imgbx">
+																<img src="image/SLimg1.png" class="cover">
+															</div>
+															<div class="details">
+																<div class="listHead">
+																	<h4>坤坤</h4>
+																	<p class="time">14:25</p>
+																</div>
+																<div class="message_p">
+																	<p>谢谢</p>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="chatlist">
+														<div class="block unread">
+															<div class="imgbx">
+																<img src="image/SLimg1.png" class="cover">
+															</div>
+															<div class="details">
+																<div class="listHead">
+																	<h4>顶针</h4>
+																	<p class="time">15:10</p>
+																</div>
+																<div class="message_p">
+																	<p>你好</p>
+																	<b>1</b>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="chatlist">
+														<div class="block">
+															<div class="imgbx">
+																<img src="image/SLimg1.png" class="cover">
+															</div>
+															<div class="details">
+																<div class="listHead">
+																	<h4>op</h4>
+																	<p class="time">11:15</p>
+																</div>
+																<div class="message_p">
+																	<p>在吗</p>
+																</div>
+															</div>
+														</div>
+													</div>
 
 
-            }
-        });
-    }
+												</div>
 
-</script>
 
-<script type="text/javascript">
-    $("#manage").click(function(){
-        manageCtr();
-    });
-    function manageCtr() {
-        $.ajax({
-            url: "sysusers/manage",
-            type: "POST",
-            dataType: "JSON",
-            success: function (json) {
+												<div class="SLrightSide">
+													<div class="header">
+														<div class="imgText">
+															<div class="userimg">
+																<img src="image/SLimg1.png" class="cover">
+															</div>
+															<h4 id="nameID">坤坤<br><span>在线</span></h4>
+														</div>
 
-                if (json.state == 200) {
-                    if(json.data==1){
-                        location.href = "9manager.html";
-                    }
-                    else{
-                        location.href = "8userManage.html";
-                    }
-                }
-            }
-        });
+													</div>
+													<!--chatbox-->
+													<div class="chatBox" id="chatBox">
+														<div class="message my_message">
+															<p>请问在哪看到的<br> </p>
+														</div>
+														<div class="message frnd_message">
+															<p>教一<br> </p>
+														</div>
+														<div class="message frnd_message">
+															<p>现在放在保安室,然后告诉保安你钱包里有啥东西，核实一下，保安应该就会给你了<br> </p>
+														</div>
+														<div class="message my_message">
+															<p>好的好的<br> </p>
+														</div>
+														<div class="message my_message">
+															<p>谢谢<br> </p>
+														</div>
+													</div>
 
-    }
-</script>
+													<!--chat input-->
+													<div class="chatbox_input">
 
-</body>
+														<div>
+															<input type="text" value="" id="textMessage">
+															<button type="button" onclick="sendMessage()">发送</button>
+														</div>
+
+													</div>
+												</div>
+
+											</div>
+
+
+
+
+
+											<br>
+								</form>
+							</div>
+
+						</article>
+						<br>
+						<br>
+					</div>
+				</div>
+			</div>
+			<!-- 侧边栏分区 -->
+			<div class="side">
+				<div class="lostAndFound_log">
+					<img src="image/lostandfound.png" alt="">
+				</div>
+				<div class="focusOnzilvhui">
+					<div>关注自律会</div>
+					<div>
+						<img src="image/zilvhui_erweima/erweima1.jpg" alt="">
+						<p>校本部<br>自律会公众号</p>
+						<br>
+						<hr>
+						<img src="image/zilvhui_erweima/erweima2.jpg" alt="">
+						<p>四校区<br>自律会公众号</p>
+						<br>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- footer分区 -->
+		<footer>
+			<div class="footer">
+				<div class="container">
+					<ul>
+						<li><a href="#">免责声明</a></li>
+						<li><a href="#">关于我们</a></li>
+						<li><a href="#">网站合作</a></li>
+						<li><a href="#">联系我们</a></li>
+					</ul>
+				</div>
+			</div>
+			<br>
+			<div class="container">
+				<p>2022浙大城市学院学生校园失物信息共享平台</p>
+				<p>地址： &nbsp; 浙江省杭州市拱墅区湖州街61号浙大城市学院北校区</p>
+				<p>举报邮箱：clcllclc@qq.com</p>
+				<p>提示: &nbsp;禁止发布任何违反国家法律、法规的言论与图片等内容</p>
+				<p>版权最终归网站设计者L&nbsp;L所有</p>
+			</div>
+		</footer>
+		<script src="js/cookie.js"></script>
+		<script src="js/userInfo.js"></script>
+		<script src="js/8user_mypublicLost.js"></script>
+		<script>
+			$(document).ready(function(e) {
+				$(".hours").jtime({
+					format: "HH:mm"
+				});
+				$(".date").jtime({
+					format: "yyyy-MM-dd  星期W"
+				})
+
+				$('label>input[type=radio]').click(function(e) {
+					if ($(this).is(':checked')) {
+						//alert($(this).is(':checked'));
+						$(this).siblings().removeAttr('checked');
+						$(this).attr('checked', 'checked');
+					}
+				});
+			});
+		</script>
+
+		<script type="text/javascript">
+			$("#btn-reg").click(function() {
+				console.log($("#form-reg").serialize());
+				$.ajax({
+					url: "/users/update",
+					type: "POST",
+					data: $("#form-reg").serialize(),
+					dataType: "json",
+					success: function(json) {
+						if (json.state == 200) {
+							alert("修改成功！");
+							// location.href = "login.html";
+						} else {
+							alert("修改失败！" + json.message);
+						}
+					}
+				});
+			});
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				showFoundList();
+			});
+
+			function showFoundList() {
+				//清空tbody中原有的数据
+				$("#tab_Lost").empty();
+				$.ajax({
+					url: "/founds/found_by_id",
+					type: "GET",
+					dataType: "JSON",
+					success: function(json) {
+						// console.log("cookie中的image=" + $.cookie("image"));
+						// $("#img-avatar").attr("src", $.cookie("image"));
+						var list = json.data;
+						for (var i = 0; i < list.length; i++) {
+
+							var tr = '<tr>' +
+								'<td>#{title}</td>' +
+								'<td>#{type}</td>' +
+								'<td>#{keyWord1}</td>' +
+								'<td>#{time}</td>' +
+								'<td><img src="#{image}" class="img-responsive" /></td>' +
+								'<td><a href="2findOwner_detail_from_user.html?newsid=' + list[i].sid + '">详情</a></td>' +
+								'<td>#{detail}</td>' +
+								'</tr>';
+
+							tr = tr.replace(/#{title}/g, list[i].title);
+							tr = tr.replace(/#{type}/g, list[i].type);
+							tr = tr.replace(/#{keyWord1}/g, list[i].keyWord1);
+							tr = tr.replace(/#{time}/g, list[i].time);
+							tr = tr.replace(/#{image}/g, list[i].image);
+							tr = tr.replace(/#{detail}/g, list[i].detail);
+
+							$("#tab_Lost").append(tr);
+						}
+
+					}
+				});
+			}
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				showFoundListLost();
+			});
+
+			function showFoundListLost() {
+				//清空tbody中原有的数据
+				$("#tab_Find").empty();
+				$.ajax({
+					url: "/losts/found_by_id_lost",
+					type: "GET",
+					dataType: "JSON",
+					success: function(json) {
+						// console.log("cookie中的image=" + $.cookie("image"));
+						// $("#img-avatar").attr("src", $.cookie("image"));
+						var list = json.data;
+						for (var i = 0; i < list.length; i++) {
+
+							var tr = '<tr>' +
+								'<td>#{ltitle}</td>' +
+								'<td>#{ltype}</td>' +
+								'<td>#{lkeyWord1}</td>' +
+								'<td>#{ltime}</td>' +
+								'<td><img src="#{limage}" class="img-responsive" /></td>' +
+								'<td><a href="2findThing_detail_from_user.html?newsid=' + list[i].lsid + '">详情</a></td>' +
+								'<td>#{ldetail}</td>' +
+								'</tr>';
+
+							tr = tr.replace(/#{ltitle}/g, list[i].ltitle);
+							tr = tr.replace(/#{ltype}/g, list[i].ltype);
+							tr = tr.replace(/#{lkeyWord1}/g, list[i].lkeyWord1);
+							tr = tr.replace(/#{ltime}/g, list[i].ltime);
+							tr = tr.replace(/#{limage}/g, list[i].limage);
+							tr = tr.replace(/#{ldetail}/g, list[i].ldetail);
+
+							$("#tab_Find").append(tr);
+						}
+
+
+					}
+				});
+			}
+		</script>
+
+		<script type="text/javascript">
+			$("#manage").click(function() {
+				manageCtr();
+			});
+
+			function manageCtr() {
+				$.ajax({
+					url: "sysusers/manage",
+					type: "POST",
+					dataType: "JSON",
+					success: function(json) {
+
+						if (json.state == 200) {
+							if (json.data == 1) {
+								location.href = "9manager.html";
+							} else {
+								location.href = "8userManage.html";
+							}
+						}
+					}
+				});
+
+			}
+		</script>
+		<script type="text/javascript">
+			function add() {
+				var name = location.search;
+				name = name.slice(name.indexOf("=") + 1)
+				//console.log(name);
+				if(name=='')
+					return;
+				else{
+					var div = document.createElement('div')
+					div.className = 'chatlist'
+					div.innerHTML='<div class="block active" onclick="SLWindow()"><div class="imgbx"><img src="image/SLimg1.png" class="cover"></div><div class="details"><div class="listHead"><h4>'+name+'</h4><p class="time">14:25</p></div><div class="message_p"><p></p></div></div></div>';
+					document.getElementById('SLleftSide').appendChild(div);
+				}
+			}
+		</script>
+		<script type="text/javascript">
+			function SLWindow(){
+				var name = location.search;
+				name = name.slice(name.indexOf("=") + 1)
+				//console.log(name);
+				if(name=='')
+					return;
+				else{
+					document.getElementById('nameID').innerHTML =name+'<br><span>在线</span>';
+					document.getElementById('chatBox').innerHTML='';
+			}
+			}
+		</script>
+		<script type="text/javascript">
+			function sendMessage(){
+				var Textmessage=document.getElementById("textMessage").value
+				
+				var div = document.createElement('div')
+				div.className = 'message my_message'
+				div.innerHTML='<p>'+Textmessage+'<br></p>'
+				document.getElementById('chatBox').appendChild(div);
+				document.getElementById("textMessage").value="";
+			}
+		</script>
+
+	</body>
 </html>
